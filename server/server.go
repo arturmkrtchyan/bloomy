@@ -4,7 +4,11 @@ import (
 	"fmt"
 	"net"
 	"os"
+
+	"github.com/Sirupsen/logrus"
 )
+
+var log = logrus.New()
 
 const (
 	host     = "localhost"
@@ -14,6 +18,13 @@ const (
 
 // Main entry point
 func Main() {
+
+	log.Info("This is Info!")
+	log.Error("This is Error!")
+	log.Warning("This is Warning!")
+	log.Debug("This is Debug!")
+	log.Info("This is Info!")
+
 	// Listen for incoming connections.
 	l, err := net.Listen(connType, host+":"+port)
 	if err != nil {
